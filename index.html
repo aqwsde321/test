@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <title>Demon Slayer</title>
+    <style>
+        .container {
+            width: 240px;
+            height: 330px;
+            transition: all 0.1s;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(105deg, transparent 40%,
+                    rgba(255, 219, 112, 0.8) 45%,
+                    rgba(132, 50, 255, 0.6) 50%,
+                    transparent 54%);
+            filter: brightness(1.1) opacity(0.8);
+            mix-blend-mode: color-dodge;
+            background-size: 150%, 150%;
+            background-position: 100%;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            /* background-image: url(./img/tanjiro1.webp); */
+            background-size: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* 그림자 효과 */
+            border: 5px solid #1e1e1e;
+        }
+
+        /* 갤러리 컨테이너 */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            /* 요소가 화면 너비에 맞춰 줄바꿈되도록 */
+            gap: 30px 40px;
+            /* 요소 간의 간격  수직 간격 30px, 수평 간격 40px */
+            justify-content: center;
+            /* 중앙 정렬 */
+            padding: 30px;
+            /* 갤러리의 패딩 */
+            box-sizing: border-box;
+            /* 패딩을 포함한 전체 크기 조정 */
+        }
+
+        .message-list .before-message {
+            display: none;
+        }
+
+        .typing-txt {
+            display: none;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 0;
+        }
+
+        .typing ul li {
+            display: block;
+        }
+
+        .typing ul li.on {
+            display: inline-block;
+            animation-name: cursor;
+            animation-duration: 0.3s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes cursor {
+            0% {
+                border-right: 1px solid #fff
+            }
+
+            50% {
+                border-right: 1px solid #000
+            }
+
+            100% {
+                border-right: 1px solid #fff
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div><i class="snes-jp-logo"></i></div>
+        <div class="logo">Demon Slayer</div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="board.html">Board</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nes-field is-inline search-bar">
+            <input type="text" id="name_field" class="nes-input" placeholder="검색할 내용을 입력하세요" style="zoom: 0.8">
+            <span class="text-color-black">
+                <a class="nes-btn" style="zoom: 0.7">검색</a>
+            </span>
+        </div>
+    </header>
+
+    <main>
+        <section class="message-list">
+            <section class="message -left">
+                <i class="nes-mario char-position" style="zoom: 0.7"></i>
+                <div class="nes-balloon from-left">
+                    <div class="typing-txt">
+                        <ul>
+                            <li>귀멸의 칼날 . . 대체 그게 뭔데?</li>
+                        </ul>
+                    </div>
+                    <div class="typing">
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="message -right before-message">
+                <div class="nes-balloon from-right">
+                    <div class="typing-txt">
+                        <ul>
+                            <li>때는 다이쇼 시대. 숯을 파는 마음씨 착한 소년 카마도 탄지로는, 어느날 도깨비에게 가족을 몰살당한다.</li>
+                            <li>유일하게 살아남은 누이동생 카마도 네즈코마저도 도깨비로 변하고 마는데 . . .</li>
+                        </ul>
+                    </div>
+                    <div class="typing">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <i class="nes-charmander char-position" style="zoom: 0.7"></i>
+            </section>
+
+            <section class="message -left before-message">
+                <i class="nes-mario char-position" style="zoom: 0.7"></i>
+                <div class="nes-balloon from-left">
+                    <div class="typing-txt">
+                        <ul>
+                            <li>귀멸의 칼날 . . 대체 그게 뭔데?</li>
+                        </ul>
+                    </div>
+                    <div class="typing">
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="message -right before-message">
+                <div class="nes-balloon from-right">
+                    <div class="typing-txt">
+                        <ul>
+                            <li>때는 다이쇼 시대. 숯을 파는 마음씨 착한 소년 카마도 탄지로는, 어느날 도깨비에게 가족을 몰살당한다.</li>
+                            <li>유일하게 살아남은 누이동생 카마도 네즈코마저도 도깨비로 변하고 마는데 . . .</li>
+                        </ul>
+                    </div>
+                    <div class="typing">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <i class="nes-charmander char-position" style="zoom: 0.7"></i>
+            </section>
+        </section>
+
+
+        <div class="gallery">
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/tanjiro1.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/nezuko-kamado.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/rengoku.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/zenit.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/inosuke.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/tengen.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/muichiro.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/gyomei.webp)"></div>
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="card" style="background-image: url(./img/giyu.webp)"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <p><i class="nes-icon is-small heart"></i>Contact Info<i class="nes-icon is-small heart"></i></p>
+        <a href="https://github.com/2mandoo"><i class="nes-icon github is-small"></i></a>
+        <p><i class="nes-icon google is-small"></i> dlwjdgus7441@gmail.com | <i class="nes-phone"
+                style="zoom: 0.15;"></i> 010 9255 7441</p>
+    </footer>
+
+    <script>
+        const containers = document.querySelectorAll('.container');
+
+        // 각 요소에 이벤트 리스너 추가
+        containers.forEach(container => {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            var overlay = container.querySelector('.overlay');
+            overlay.style = 'filter : opacity(0)';
+
+            container.addEventListener('mousemove', function (e) {
+                var x = e.offsetX;
+                var y = e.offsetY;
+                var rate = 20;
+                var rotateX = rate * 2 / height * y - rate;
+                var rotateY = -rate * 2 / width * x + rate;
+
+                overlay.style = `background-position : ${(x + y) / (width + height) * 220 - 80}%`
+                container.style = `transform : perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+            })
+            container.addEventListener('mouseout', function () {
+                overlay.style = 'filter : opacity(0)';
+                container.style = 'transform : perspective(350px) rotateX(0deg) rotateY(0deg)'
+            })
+        });
+
+        var overlay = document.querySelector('.overlay');
+
+
+        function wordTyping() {
+            var typingBool = false;
+            var typingIdx = 0;
+            var liIndex = 0;
+
+            var liElements = document.querySelectorAll(".typing-txt > ul > li");
+            var liLength = liElements.length;
+
+            // 타이핑될 텍스트를 가져온다
+            var typingTxt = liElements[liIndex].textContent.trim();
+            typingTxt = typingTxt.split(""); // 한 글자씩 자른다.
+
+            if (!typingBool) { // 타이핑이 진행되지 않았다면
+                typingBool = true;
+                var tyInt = setInterval(typing, 100); // 반복 동작
+            }
+
+            function typing() {
+
+                var typingLiElements = document.querySelectorAll(".typing > ul > li")
+                typingLiElements.forEach(function (li) {
+                    li.classList.remove("on");
+                });
+
+                typingLiElements[liIndex].classList.add("on");
+
+                if (typingIdx < typingTxt.length) { // 타이핑될 텍스트 길이만큼 반복
+                    typingLiElements[liIndex].textContent += typingTxt[typingIdx]; // 한 글자씩 이어준다.
+                    typingIdx++;
+                } else {
+                    if (liIndex < liLength - 1) {
+                        // 다음 문장으로 가기 위해 인덱스를 1 증가
+                        liIndex++;
+                        // 다음 문장을 타이핑하기 위한 셋팅
+                        typingIdx = 0;
+                        typingBool = false;
+                        typingTxt = liElements[liIndex].textContent.trim();
+
+                        var parentSection = liElements[liIndex].closest('section.before-message');
+                        if (parentSection) {
+                            parentSection.classList.remove('before-message');
+                        }
+
+                        typingTxt = typingTxt.split(""); // 다시 배열로 만듦
+
+                        // 다음 문장 타이핑 전 1초 쉰다
+                        clearInterval(tyInt); // 타이핑 종료
+
+                        setTimeout(function () {
+                            // 1초 후에 다시 타이핑 반복 시작
+                            tyInt = setInterval(typing, 100);
+                        }, 1000);
+                    } else if (liIndex === liLength - 1) {
+                        // 마지막 문장까지 써지면 반복 종료
+                        clearInterval(tyInt);
+                    }
+                }
+            }
+
+        }
+        wordTyping();
+
+
+
+    </script>
+</body>
+
+</html>

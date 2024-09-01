@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- latest -->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <style>
+        @font-face {
+            font-family: 'DungGeunMo-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/wooin21/web/fonts/etc/DungGeunMo-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        /* body {
+            font-family:'DungGeunMo-Regular', 'Fixedsys', monospace;
+        } */
+        html, body, pre, code, kbd, samp {
+            font-family: 'DungGeunMo-Regular', 'Fixedsys', monospace;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        a:visited{
+            text-decoration: none;
+        }
+
+        a:hover{
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        /* *{
+            font-family: "Pretendard-Regular";
+        } */
+
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            /* background-color: black; */
+        }
+        
+        header {
+            height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            align-items: center;
+            display: flex;
+            position: absolute;
+            width: 90vw;
+            justify-content: space-between;
+            
+        }
+        .container{
+            width:220px; height: 310px;
+            transition: all 0.1s;
+            position:relative;
+        }
+        .overlay{
+            position:absolute;
+            width: 220px; height: 310px;
+            background: linear-gradient(105deg, transparent 40%, 
+            rgba(255,219,112,0.8) 45%,
+            rgba(132,50,255,0.6) 50%,
+            transparent 54%);
+            filter:brightness(1.1) opacity(0.8);
+            mix-blend-mode: color-dodge;
+            background-size: 150%, 150%;
+            background-position: 100%;
+            transition: all 0.1s;
+        }
+        .card{
+            width: 220px; height: 310px;
+            background-image: url(./img/S6a_058.webp);
+            background-size: cover;
+        }
+    </style> 
+</head>
+<body>
+    <header>
+ 
+        <i class="snes-jp-logo"></i>
+        <nav class="nav">
+            <div class="titlePreview">
+                <a href="test.html" class="titleText">HOME</a>
+                <a class="titleText about">ABOUT</a>
+                <a class="titleText list">BOARD</a>
+                <a class="titleText list">LOCATION</a>
+                <a class="titleText contact">CONTACT</a>
+            </div>
+        </nav>
+    
+        <div class="nes-field is-inline searchContainer">
+            <input type="text" id="name_field" class="nes-input" placeholder="검색할 내용을 입력하세요" style="zoom: 0.7">&nbsp
+            <a class="nes-btn" style="zoom: 0.7">검색</a>    
+        </div>
+          
+        
+      
+    </header>
+
+
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="card"></div>
+    </div>
+
+    <script>
+        var container = document.querySelector('.container');
+        var overlay = document.querySelector('.overlay');
+        container.addEventListener('mousemove', function(e){
+            var x = e.offsetX;
+            var y = e.offsetY;
+            var rate=20;
+            var rotateX = rate*2/310 * y - rate;
+            var rotateY = -rate*2/220 * x + rate;
+
+            overlay.style = `background-position : ${x/5 + y/5}%`
+            container.style = `transform : perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+        })
+
+        container.addEventListener('mouseout', function(){
+            overlay.style = 'filter : opacity(0)';
+            container.style = 'transform : perspective(350px) rotateX(0deg) rotateY(0deg)'
+        })
+
+    </script>
+</body>
+</html>
